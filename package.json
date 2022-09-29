@@ -1,0 +1,8 @@
+{
+  "name": "sample",
+  "packageManager": "yarn@3.2.3",
+  "devDependencies": {
+    "pnp-webpack-plugin": "^1.7.0",
+    "typescript": "^4.8.4"
+  }
+}
