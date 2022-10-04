@@ -1,24 +1,46 @@
 {
-  "name": "react-yarn-3",
+  "name": "sample",
   "packageManager": "yarn@3.2.3",
-  "engines": {
-    "node": ">=16.17.1",
-    "npm": ">=8.19.2"
+  "workspaces": [
+    "apps/*",
+    "plugins/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "plugin:build": "turbo run plugin:build --parallel",
+    "plugin:postbuild": "turbo run plugin:postbuild --parallel"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^8.0.4",
-    "react-router-dom": "^6.4.1"
-  },
+  "clean": [
+    "yarn cache clean",
+    "rm -rf .yarn/install-state.gz",
+    "rm -rf .yarn/unplugged",
+    "rm -rf node_modules"
+  ],
+  "refresh": [
+    "yarn clean",
+    "yarn rebuild .",
+    "yarn"
+  ],
   "devDependencies": {
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1",
-    "pnp-webpack-plugin": "^1.7.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.74.0",
-    "webpack-dev-server": "^4.11.1"
+    "@types/eslint": "^8",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "dotenv-load": "^2.0.1",
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "fs-extra": "^10.1.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "pinst": "^3.0.0",
+    "turbo": "latest",
+    "typescript": "^4.8.4"
   }
 }

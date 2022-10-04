@@ -1,0 +1,15 @@
+{
+  "name": "@sample/yarn-plugin-refresh",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "plugin:build": "builder build plugin",
+    "plugin:postbuild": "yarn plugin-organize"
+  },
+  "devDependencies": {
+    "@sample/plugin": "*",
+    "@yarnpkg/builder": "^4.0.0-rc.22",
+    "@yarnpkg/cli": "^4.0.0-rc.22",
+    "@yarnpkg/core": "^4.0.0-rc.22"
+  }
+}
